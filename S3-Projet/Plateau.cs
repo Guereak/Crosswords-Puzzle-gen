@@ -191,12 +191,23 @@ namespace S3_Projet
                     movX = -1;
                     movY = -1;
                     break;
+                default:
+                    Console.WriteLine("La direction ne fait pas partie des directions valides.");
+                    return false;
             }
+
+
 
             int i = 0;
             bool doMatch = true;
             while(i < mot.Length && doMatch)
             {
+                if(ligne >= matrice.GetLength(0) && colonne >= matrice.GetLength(1))
+                {
+                    Console.WriteLine("Le truc n'est pas dans le tableau");
+                    return false;
+                }
+
                 if(mot[i] != matrice[ligne, colonne])
                 {
                     doMatch = false;

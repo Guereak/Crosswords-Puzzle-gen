@@ -89,42 +89,55 @@ namespace S3_Projet
             {
                 string[] args = Console.ReadLine().Split(' ');
 
-                if (currentPlateau.MotsATrouver.Contains(args[0]))
+                if(args.Length >= 4)
                 {
-                    if (currentPlateau.Test_Plateau(args[0], Int32.Parse(args[2]), Int32.Parse(args[3]), args[1]))
+                    if (currentPlateau.MotsATrouver.Contains(args[0]))
                     {
-                        if (t.Time <= 60)
+                        if (currentPlateau.Test_Plateau(args[0], Int32.Parse(args[2]), Int32.Parse(args[3]), args[1]))
                         {
-                            player.Add_Mot(args[0]);
-                            player.Add_Score(args[0].Length);
-
-                            if (player.MotsTrouves.Length < currentPlateau.MotsATrouver.Length)
+                            if (t.Time <= 60)
                             {
-                                Console.WriteLine("Bien joué à toi! Il reste encore des mots");
+                                if(player.motsTrouves == null)
+                                {
+                                    player.motsTrouves = new string[0];
+                                }
+
+                                if (player.MotsTrouves.Length < currentPlateau.MotsATrouver.Length)
+                                {
+                                    //On rajoute le mot dans la liste des mots trouvés.
+                                    if (!player.MotsTrouves.Contains(args[0]))
+                                    {
+                                        player.Add_Mot(args[0]);
+                                        player.Add_Score(args[0].Length);
+                                        Console.WriteLine("Bien joué à toi! Il reste encore des mots");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Tu as déjà trouvé ce mot. Essaye encore!");
+                                    }
+                                }
                             }
                         }
                         else
                         {
-                            Console.WriteLine($"Malheureusement le temps est écoulé! Ton score est maintenant de {player.Score}");
-                            Console.ReadKey();
+                            Console.WriteLine("Le mot n'est pas à cet endroit. Continue à chercher!");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Le mot n'est pas à cet endroit. Continue à chercher!");
+                        Console.WriteLine("Ce mot n'est pas un mot à trouver :(");
                     }
-
-                    player.Add_Mot(args[1]);
                 }
                 else
                 {
-                    Console.WriteLine("Ce mot n'est pas un mot à trouver :(");
+                    Console.WriteLine($"Il n'y a pas assez d'arguments: 4 attendus, {args.Length} lus.");
                 }
-
             }
 
-            return currentPlateau;
+            Console.WriteLine($"Malheureusement le temps est écoulé! Ton score est maintenant de {player.Score}");
+            Console.ReadKey();
 
+            return currentPlateau;
         }
     }
 }
