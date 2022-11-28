@@ -51,7 +51,7 @@ namespace S3_Projet
         public void ListFiller(int nbreDeLettres)
         {
             wordList = new List<string>();
-            using (StreamReader file = new StreamReader($"../../Dictionnaires/MotsFR.txt"))
+            using (StreamReader file = new StreamReader("../../Dictionnaires/MotsFR.txt"))
             {
                 string line;
                 bool isNext = false;

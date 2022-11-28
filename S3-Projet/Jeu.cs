@@ -35,5 +35,10 @@ namespace S3_Projet
                 currentPlateau = Joueur.Manche(player2, i + 1);
             }
         }
+
+        public void StartMenu()
+        {
+
+        }
     }
 }
