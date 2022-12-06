@@ -10,8 +10,12 @@ namespace S3_Projet
     {
         static void Main(string[] args)
         {
-
+            
             Jeu j = new Jeu();
+
+            //save test
+            j.SaveGame();
+
             j.StartGame();
 
             //PlateauGenerator.GeneratePlateau(1, 10, 10);

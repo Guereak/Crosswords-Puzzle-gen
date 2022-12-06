@@ -12,9 +12,6 @@ namespace S3_Projet
         public string[] motsTrouves;
         private int score;
 
-        public static int dimX;
-        public static int dimY;
-
         public string[] MotsTrouves
         {
             get { return motsTrouves; }
