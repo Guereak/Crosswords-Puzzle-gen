@@ -17,6 +17,13 @@ namespace S3_Projet
         static string[] direction_3 = { "N", "S", "E", "O", "NE", "SO" };
         static string[] direction_4 = { "N", "S", "E", "O", "NE", "SO", "NO", "SE" };
 
+
+        /// <summary>
+        /// Génère un plateau avec des mots placés aléatoirement dans la grille
+        /// </summary>
+        /// <param name="difficulty">difficulté</param>
+        /// <param name="nbrLignes">nombre de lignes du plateau</param>
+        /// <param name="nbrColonnes">nombre de colonnes du plateau</param>
         public static Plateau GeneratePlateau(int difficulty, int nbrLignes, int nbrColonnes)
         {
             char[,] newPlateau = new char[nbrLignes, nbrColonnes];

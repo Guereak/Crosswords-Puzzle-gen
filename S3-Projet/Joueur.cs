@@ -37,7 +37,9 @@ namespace S3_Projet
             motsTrouves = null;
         }
 
-
+        /// <summary>
+        /// Permet d'ajouter un mot à la liste des mots trouvés par le joueur
+        /// </summary>
         public void Add_Mot(string mot)
         {
             int l = motsTrouves == null ? 0 : motsTrouves.Length;
@@ -61,16 +63,25 @@ namespace S3_Projet
             //Ajouter la liste des mots trouvés?
         }
 
+        /// <summary>
+        /// Ajoute une valeur à la méthode privée score
+        /// </summary>
         public void Add_Score(int val)
         {
             score += val;
         }
 
+        /// <summary>
+        /// Génère un nouveau plateau pour la génération d'un nouveau mot
+        /// </summary>
         public void Tour(int tourNum, int dimensionX, int dimensionY)
         {
             Plateau p = PlateauGenerator.GeneratePlateau(tourNum, dimensionX, dimensionY);
         }
 
+        /// <summary>
+        /// Gère une manche. Principlement utilisée pour assainir les entrées de l'utilisateur
+        /// </summary>
         public static Plateau Manche(Joueur player, int difficulte)
         {
 

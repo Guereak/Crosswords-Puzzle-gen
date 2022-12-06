@@ -11,6 +11,9 @@ namespace S3_Projet
     {
         public List<string> wordList = new List<string>();
 
+        /// <summary>
+        /// Racherche dichotomique récursive / binary search
+        /// </summary>
         private bool RechDichoRecursif(string mot, int bordureGauche, int bordureDroite)
         {
 
@@ -43,6 +46,9 @@ namespace S3_Projet
 
         }
 
+        /// <summary>
+        /// Remplissage de la liste avec les mots qui ont le nombre de lettres passés en paramètre
+        /// </summary>
         public void ListFiller(int nbreDeLettres)
         {
             wordList = new List<string>();
@@ -56,7 +62,6 @@ namespace S3_Projet
 
                     if (isNext)
                     {
-                        //Pas convaincu par cette liste
                         wordList.AddRange(line.Split(' '));
                         isNext = false;
                     }
@@ -69,6 +74,9 @@ namespace S3_Projet
             }
         }
 
+        /// <summary>
+        /// Combine la recherche dichotomique et le remplissage pour une fonction de recherche complète
+        /// </summary>
         public bool Search(string mot)
         {
             bool isEmpty = wordList.Count == 0 ? true : false;

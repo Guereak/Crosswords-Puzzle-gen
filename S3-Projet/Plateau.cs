@@ -48,6 +48,9 @@ namespace S3_Projet
             return s1.TrimEnd('\n');
         }
 
+        /// <summary>
+        /// Lis un fichier plateau csv
+        /// </summary>
         public void ToRead(string nomfile)
         {
             int[] firstLineParams = new int[4];
@@ -136,6 +139,9 @@ namespace S3_Projet
             }
         }
 
+        /// <summary>
+        /// Enregristre un plateau dans un fichier csv
+        /// </summary>
         public void ToFile(string nomfile)
         {
             string toWrite = $"{difficultyLevel};{matrice.GetLength(0)};{matrice.GetLength(1)};{motsATrouver.Length}\n";
@@ -156,6 +162,10 @@ namespace S3_Projet
 
             File.WriteAllText($"../../Plateaux/{nomfile}", toWrite);
         }
+
+        /// <summary>
+        /// Cette méthode est appellée pour vérifier si un mot est contenu à la position passée en paramètre
+        /// </summary>
         public bool Test_Plateau(string mot, int ligne, int colonne, string direction)
         {
             int movX = 0;
@@ -237,6 +247,9 @@ namespace S3_Projet
             return doMatch;
         }
 
+        /// <summary>
+        /// Affiche le plateau passé en paramètres dans la console, statique
+        /// </summary>
         public static void AfficherPlateau(char[,] matrice)
         {
             for(int i = 0; i < matrice.GetLength(0); i++)
@@ -249,6 +262,9 @@ namespace S3_Projet
             }
         }
 
+        /// <summary>
+        /// Afficher le plateau, méthode d'instance
+        /// </summary>
         public void AfficherPlateau()
         {
             Console.Clear();
