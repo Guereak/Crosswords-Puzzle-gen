@@ -7,14 +7,9 @@ using System.Threading.Tasks;
 
 namespace S3_Projet
 {
-    class Dictionnaire
+    public class Dictionnaire
     {
         public List<string> wordList = new List<string>();
-
-        public override string ToString()
-        {
-            throw new NotImplementedException();
-        }
 
         private bool RechDichoRecursif(string mot, int bordureGauche, int bordureDroite)
         {

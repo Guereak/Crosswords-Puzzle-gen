@@ -7,7 +7,7 @@ using System.IO;
 
 namespace S3_Projet
 {
-    class Plateau
+    public class Plateau
     {
         private char[,] matrice;
         private int difficultyLevel;

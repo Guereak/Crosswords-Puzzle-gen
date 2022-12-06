@@ -6,10 +6,10 @@ using System.Threading;
 
 namespace S3_Projet
 {
-    class Joueur
+    public class Joueur
     {
         private string nom;
-        private string[] motsTrouves;
+        public string[] motsTrouves;
         private int score;
 
         public static int dimX;

@@ -8,22 +8,22 @@ namespace S3_Projet
 {
     public class Randomizer
     {
-        private static readonly Random _global = new Random();
-        [ThreadStatic] private static Random _local;
+        private static readonly Random global = new Random();
+        [ThreadStatic] private static Random local;
 
         public int Next()
         {
-            if (_local == null)
+            if (local == null)
             {
                 int seed;
-                lock (_global)
+                lock (global)
                 {
-                    seed = _global.Next();
+                    seed = global.Next();
                 }
-                _local = new Random(seed);
+                local = new Random(seed);
             }
 
-            return _local.Next();
+            return local.Next();
         }
     }
 }

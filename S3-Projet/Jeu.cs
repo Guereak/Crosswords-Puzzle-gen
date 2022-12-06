@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S3_Projet
 {
-    class Jeu
+    public class Jeu
     {
         Plateau currentPlateau;
         Plateau[] previousPlateaux;
