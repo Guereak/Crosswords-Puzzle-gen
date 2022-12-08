@@ -10,6 +10,16 @@ namespace S3_Projet
     public class Dictionnaire
     {
         public List<string> wordList = new List<string>();
+        public string fileName = "MotsFR.txt";
+
+
+        public Dictionnaire(string langue)
+        {
+            if(langue == "EN")
+            {
+                fileName = "MotsEN.txt";
+            }
+        }
 
         /// <summary>
         /// Racherche dichotomique récursive / binary search
@@ -52,7 +62,7 @@ namespace S3_Projet
         public void ListFiller(int nbreDeLettres)
         {
             wordList = new List<string>();
-            using (StreamReader file = new StreamReader("../../Dictionnaires/MotsFR.txt"))
+            using (StreamReader file = new StreamReader($"../../Dictionnaires/{fileName}"))
             {
                 string line;
                 bool isNext = false;

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Text.RegularExpressions;
 
 namespace S3_Projet
@@ -12,10 +9,7 @@ namespace S3_Projet
         //Ajustable
         static int trialThreshold = 400;
 
-        static string[] direction_1 = { "S", "E" };
-        static string[] direction_2 = { "N", "S", "E", "O" };
-        static string[] direction_3 = { "N", "S", "E", "O", "NE", "SO" };
-        static string[] direction_4 = { "N", "S", "E", "O", "NE", "SO", "NO", "SE" };
+        static string[] directions = { "N", "S", "E", "O", "NE", "SO", "NO", "SE" };
 
 
         /// <summary>
@@ -37,23 +31,22 @@ namespace S3_Projet
                 //On choisit la direction dans laquelle placer le mot
                 Randomizer randomizer = new Randomizer();
                 int seed = randomizer.Next();
-
-                Random r = new Random(seed);
+                Random r = new Random(/*seed*/);
                 string direction;
 
                 switch (difficulty)
                 {
                     case 1:
-                        direction = direction_1[r.Next(2)];
+                        direction = directions[r.Next(2)];
                         break;
                     case 2:
-                        direction = direction_2[r.Next(4)];
+                        direction = directions[r.Next(4)];
                         break;
                     case 3:
-                        direction = direction_3[r.Next(6)];
+                        direction = directions[r.Next(6)];
                         break;
                     default:
-                        direction = direction_4[r.Next(8)]; 
+                        direction = directions[r.Next(8)]; 
                         break;
                 }
 
@@ -154,7 +147,7 @@ namespace S3_Projet
 
                 //Regex
                 Regex reg = new Regex(searchFor);
-                Dictionnaire d = new Dictionnaire();
+                Dictionnaire d = new Dictionnaire("FR");
                 if(d.wordList.Count != 0)
                 {
                     d.wordList.Clear();
@@ -219,8 +212,6 @@ namespace S3_Projet
             Console.WriteLine(s1);
 
             Plateau.AfficherPlateau(newPlateau);
-
-
 
             Plateau p = new Plateau(newPlateau, difficulty, motsATrouver);
 

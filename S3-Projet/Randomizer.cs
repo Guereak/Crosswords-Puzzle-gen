@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace S3_Projet
 {
+
+    /// <summary>
+    /// Cette classe permet de s'assurer de l'effet d'aléatoire lorsqu'on génére des nombres aléatoires à haute vitesse
+    /// </summary>
     public class Randomizer
     {
         private static readonly Random global = new Random();

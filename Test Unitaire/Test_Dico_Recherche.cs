@@ -10,7 +10,7 @@ namespace Test_Unitaire
         [TestMethod]
         public void Test_1()
         {
-            Dictionnaire d = new Dictionnaire();
+            Dictionnaire d = new Dictionnaire("FR");
 
             Assert.AreEqual(d.Search("AVION"), true);
         }
@@ -18,7 +18,7 @@ namespace Test_Unitaire
         [TestMethod]
         public void Test_2()
         {
-            Dictionnaire d = new Dictionnaire();
+            Dictionnaire d = new Dictionnaire("FR");
 
             Assert.AreEqual(d.Search("ZIZO"), false);
         }
@@ -26,7 +26,7 @@ namespace Test_Unitaire
         [TestMethod]
         public void Test_3()
         {
-            Dictionnaire d = new Dictionnaire();
+            Dictionnaire d = new Dictionnaire("FR");
 
             Assert.AreEqual(d.Search("AVIRON"), true);
         }
@@ -34,7 +34,7 @@ namespace Test_Unitaire
         [TestMethod]
         public void Test_4()
         {
-            Dictionnaire d = new Dictionnaire();
+            Dictionnaire d = new Dictionnaire("FR");
 
             Assert.AreEqual(d.Search("PLUSIEURSMOTS"), false);
         }
@@ -42,7 +42,7 @@ namespace Test_Unitaire
         [TestMethod]
         public void Test_5()
         {
-            Dictionnaire d = new Dictionnaire();
+            Dictionnaire d = new Dictionnaire("FR");
 
             Assert.AreEqual(d.Search("BATEAU"), true);
         }
@@ -50,7 +50,7 @@ namespace Test_Unitaire
         [TestMethod]
         public void Test_6()
         {
-            Dictionnaire d = new Dictionnaire();
+            Dictionnaire d = new Dictionnaire("FR");
 
             Assert.AreEqual(d.Search("15€4r4€\\r"), false);
         }
