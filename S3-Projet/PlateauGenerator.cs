@@ -9,7 +9,7 @@ namespace S3_Projet
         //Ajustable
         static int trialThreshold = 400;
 
-        static string[] directions = { "N", "S", "E", "O", "NE", "SO", "NO", "SE" };
+        static string[] directions = { "E", "S", "N", "O", "NE", "SO", "NO", "SE" };
 
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace S3_Projet
                 //On choisit la direction dans laquelle placer le mot
                 Randomizer randomizer = new Randomizer();
                 int seed = randomizer.Next();
-                Random r = new Random(/*seed*/);
+                Random r = new Random(seed);
                 string direction;
 
                 switch (difficulty)

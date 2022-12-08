@@ -65,6 +65,7 @@ namespace S3_Projet
                         j.StartGame();
                         break;
                     case "2":
+                        Jeu.ListSavedGames();
                         validOption = true;
                         break;
                     case "3":

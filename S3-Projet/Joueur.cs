@@ -34,6 +34,13 @@ namespace S3_Projet
             motsTrouves = null;
         }
 
+        public Joueur(string nom, int score)
+        {
+            this.nom = nom;
+            this.score = score;
+            motsTrouves = null;
+        }
+
         /// <summary>
         /// Permet d'ajouter un mot à la liste des mots trouvés par le joueur
         /// </summary>
@@ -92,8 +99,8 @@ namespace S3_Projet
 
             currentPlateau.AfficherPlateau();
 
-
-            while (t.Time <= 60 && !foundAllWords)
+            //Put time back to 60
+            while (t.Time <= 20 && !foundAllWords)
             {
                 string[] args = Console.ReadLine().Split(' ');
 

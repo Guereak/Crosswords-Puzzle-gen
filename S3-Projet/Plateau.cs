@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.IO;
 
 namespace S3_Projet
@@ -160,7 +157,11 @@ namespace S3_Projet
             }
             toWrite.TrimEnd('\n');
 
-            File.WriteAllText($"../../Plateaux/{nomfile}", toWrite);
+            using (StreamWriter f = new StreamWriter(nomfile))
+            {
+                f.Write(toWrite);
+            }
+                //File.WriteAllText(nomfile, toWrite);
         }
 
         /// <summary>
