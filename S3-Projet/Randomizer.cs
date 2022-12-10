@@ -12,8 +12,8 @@ namespace S3_Projet
     /// </summary>
     public class Randomizer
     {
-        private static readonly Random global = new Random();
-        [ThreadStatic] private static Random local;
+        static Random global = new Random();
+        [ThreadStatic] static Random local;
 
         public int Next()
         {

@@ -25,7 +25,7 @@ namespace S3_Projet
 
         public override string ToString()
         {
-            string s1 = $"Niveau: {difficultyLevel}, Dimensions: {matrice.GetLength(0)}x{matrice.GetLength(1)} (lxc), Nombre de mots: {motsATrouver.Length}\n";
+            string s1 = $"Niveau: {difficultyLevel}, Dimensions: {matrice.GetLength(0)}x{matrice.GetLength(1)} (LxC), Nombre de mots: {motsATrouver.Length}\n";
 
             foreach(string s in motsATrouver)
             {
@@ -187,19 +187,19 @@ namespace S3_Projet
                     movY = -1;
                     break;
                 case "NE":
-                    movX = 1;
+                    movX = -1;
                     movY = 1;
                     break;
                 case "NO":
-                    movX = 1;
+                    movX = -1;
                     movY = -1;
                     break;
                 case "SE":
                     movX = 1;
-                    movY = -1;
+                    movY = 1;
                     break;
                 case "SO":
-                    movX = -1;
+                    movX = 1;
                     movY = -1;
                     break;
                 default:
@@ -278,16 +278,39 @@ namespace S3_Projet
                 s1 += s + ", ";
             }
             Console.WriteLine(s1);
+            Console.Write("---");
+            for (int i = 0; i < matrice.GetLength(0); i++)
+            {
+                Console.Write("----");
+            }
+            Console.WriteLine(" ");
 
+            Console.Write("  | ");
+            for (int i = 0; i < matrice.GetLength(0); i++)
+            {
+                Console.Write(i + 1);
+                Console.Write(i < 9 ? " | " : "| ");
+            }
+            Console.WriteLine();
 
             for (int i = 0; i < matrice.GetLength(0); i++)
             {
+                Console.Write(i + 1);
+                Console.Write(i < 9 ? " | " : "| ");
+
                 for (int j = 0; j < matrice.GetLength(1); j++)
                 {
-                    Console.Write(matrice[i, j] + " ");
+                    Console.Write(matrice[i, j] + " | ");
                 }
                 Console.WriteLine();
             }
+
+            Console.Write("---");
+            for (int i = 0; i < matrice.GetLength(0); i++)
+            {
+                Console.Write("----");
+            }
+            Console.WriteLine(" ");
         }
     }
 }

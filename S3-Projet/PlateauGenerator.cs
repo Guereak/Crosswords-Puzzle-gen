@@ -22,7 +22,7 @@ namespace S3_Projet
         {
             char[,] newPlateau = new char[nbrLignes, nbrColonnes];
             string[] motsATrouver;
-            //On détermine le nombre de mots à placer en fonction de la taille tsais
+            //On détermine le nombre de mots à placer en fonction de la taille
             int nbrMots = (int)Math.Sqrt(nbrLignes * nbrColonnes * 1.2);
             motsATrouver = new string[nbrMots];
 
@@ -68,19 +68,19 @@ namespace S3_Projet
                         movY = -1;
                         break;
                     case "NE":
-                        movX = 1;
+                        movX = -1;
                         movY = 1;
                         break;
                     case "NO":
-                        movX = 1;
+                        movX = -1;
                         movY = -1;
                         break;
                     case "SE":
                         movX = 1;
-                        movY = -1;
+                        movY = 1;
                         break;
                     case "SO":
-                        movX = -1;
+                        movX = 1;
                         movY = -1;
                         break;
                 }
@@ -121,7 +121,6 @@ namespace S3_Projet
                     posX = r.Next(nbrColonnes);
                     posY = r.Next(nbrLignes);
                     //Console.WriteLine($"{posX}, {posY}");
-
 
                     //On vérifie qu'on est pas outOfBounds
                     if((posX + motLength * movX >= 0 && posX + motLength * movX < nbrColonnes) && (posY + motLength * movY >= 0 && posY + motLength * movY < nbrLignes))

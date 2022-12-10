@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace S3_Projet
 {
-    class Timer
+    public class Timer
     {
         private int time;
         private bool isPause = false;

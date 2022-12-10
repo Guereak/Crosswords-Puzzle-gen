@@ -91,6 +91,7 @@ namespace S3_Projet
 
             Timer t = new Timer();
 
+            //Thread
             Thread th = new Thread(new ThreadStart(t.StartTimer));
             th.Start();
 
@@ -99,8 +100,7 @@ namespace S3_Projet
 
             currentPlateau.AfficherPlateau();
 
-            //Put time back to 60
-            while (t.Time <= 20 && !foundAllWords)
+            while (t.Time <= 60 && !foundAllWords)
             {
                 string[] args = Console.ReadLine().Split(' ');
 
@@ -108,7 +108,7 @@ namespace S3_Projet
                 {
                     if (currentPlateau.MotsATrouver.Contains(args[0]))
                     {
-                        if (currentPlateau.Test_Plateau(args[0], Int32.Parse(args[2]), Int32.Parse(args[3]), args[1]))
+                        if (currentPlateau.Test_Plateau(args[0], Int32.Parse(args[2]) - 1, Int32.Parse(args[3]) - 1, args[1]))
                         {
                             if (t.Time <= 60)
                             {
