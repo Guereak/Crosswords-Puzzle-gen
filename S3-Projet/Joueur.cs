@@ -12,6 +12,8 @@ namespace S3_Projet
         public string[] motsTrouves;
         private int score;
 
+        public static int maxTime = 60;
+
         public string[] MotsTrouves
         {
             get { return motsTrouves; }
@@ -86,7 +88,7 @@ namespace S3_Projet
         /// <summary>
         /// Gère une manche. Principlement utilisée pour assainir les entrées de l'utilisateur
         /// </summary>
-        public static Plateau Manche(Joueur player, int difficulte)
+        public static Plateau Manche(Joueur player, int difficulte, int taille)
         {
 
             Timer t = new Timer();
@@ -95,12 +97,12 @@ namespace S3_Projet
             Thread th = new Thread(new ThreadStart(t.StartTimer));
             th.Start();
 
-            Plateau currentPlateau = PlateauGenerator.GeneratePlateau(difficulte, 10, 10);
+            Plateau currentPlateau = PlateauGenerator.GeneratePlateau(difficulte, taille, taille);
             bool foundAllWords = false;
 
             currentPlateau.AfficherPlateau();
 
-            while (t.Time <= 60 && !foundAllWords)
+            while (t.Time <= maxTime && !foundAllWords)
             {
                 string[] args = Console.ReadLine().Split(' ');
 
@@ -110,7 +112,7 @@ namespace S3_Projet
                     {
                         if (currentPlateau.Test_Plateau(args[0], Int32.Parse(args[2]) - 1, Int32.Parse(args[3]) - 1, args[1]))
                         {
-                            if (t.Time <= 60)
+                            if (t.Time <= maxTime)
                             {
                                 if(player.motsTrouves == null)
                                 {

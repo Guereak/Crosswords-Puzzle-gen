@@ -15,7 +15,8 @@ namespace S3_Projet
         int nombreDeManches = 4;
         int mancheActuelle = 0;
 
-
+        int[] size = new int[] { 8, 10, 12, 14 };
+        int[] timer = new int[] { 60, 90, 120, 150};
 
         public Jeu(int round, string p1Name, string p2Name, int p1Score, int p2Score)
         {
@@ -30,15 +31,18 @@ namespace S3_Projet
         {
             while (mancheActuelle < nombreDeManches)
             {
+                Joueur.maxTime = timer[mancheActuelle];
                 mancheActuelle++;
+                
                 Console.WriteLine($"Au tour de {player1.Nom}");
                 Console.ReadKey();
-                currentPlateau = Joueur.Manche(player1, mancheActuelle);
+
+                currentPlateau = Joueur.Manche(player1, mancheActuelle, size[mancheActuelle - 1]);
                 previousPlateaux.Add(currentPlateau);
 
                 Console.WriteLine($"Au tour de {player2.Nom}");
                 Console.ReadKey();
-                currentPlateau = Joueur.Manche(player2, mancheActuelle);
+                currentPlateau = Joueur.Manche(player2, mancheActuelle, size[mancheActuelle- 1]);
                 previousPlateaux.Add(currentPlateau);
 
                 //Ici on veut proposer la sauvegarde de la partie
