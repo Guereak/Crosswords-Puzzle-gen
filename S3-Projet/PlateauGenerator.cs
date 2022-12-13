@@ -7,6 +7,9 @@ namespace S3_Projet
     class PlateauGenerator
     {
         //Ajustable
+
+        public static Dictionnaire dico;
+
         static int trialThreshold = 400;
 
         static string[] directions = { "E", "S", "N", "O", "NE", "SO", "NO", "SE" };
@@ -146,12 +149,11 @@ namespace S3_Projet
 
                 //Regex
                 Regex reg = new Regex(searchFor);
-                Dictionnaire d = new Dictionnaire("FR");
-                if(d.wordList.Count != 0)
+                if(dico.wordList.Count != 0)
                 {
-                    d.wordList.Clear();
+                    dico.wordList.Clear();
                 }
-                d.ListFiller(motLength);
+                dico.ListFiller(motLength);
 
                 int index = 0;
                 bool foundword = false;
@@ -160,11 +162,11 @@ namespace S3_Projet
 
                 while(index < trialThreshold && !foundword)
                 {
-                    int searchIndex = r.Next(d.wordList.Count);
+                    int searchIndex = r.Next(dico.wordList.Count);
 
-                    if (reg.IsMatch(d.wordList[searchIndex]))
+                    if (reg.IsMatch(dico.wordList[searchIndex]))
                     {
-                        leMot = d.wordList[searchIndex];
+                        leMot = dico.wordList[searchIndex];
                         motsATrouver[i] = leMot;
                         foundword = true;
                     }

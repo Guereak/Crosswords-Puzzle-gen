@@ -62,6 +62,12 @@ namespace S3_Projet
         /// </summary>
         public void StartGame()
         {
+            Console.WriteLine("Quel dictionnaire utiliser? Anglais: 'EN', Français: 'FR' (par défaut) :");
+            string s = Console.ReadLine();
+            PlateauGenerator.dico = new Dictionnaire(s);
+            Console.WriteLine($"Le dictionnaire sélectionné est le: {(s == "EN" ? "Anglais" : "Français")}");
+
+
             mancheActuelle = 0;
             Console.WriteLine("Bonjour Joueur 1, entrez votre nom:");
             player1 = new Joueur(Console.ReadLine());
