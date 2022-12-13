@@ -270,7 +270,7 @@ namespace S3_Projet
         {
             Console.Clear();
 
-            Console.WriteLine("Entrez vos réponses sous la forme: MOT DIRECTION LIGNE COLONNE\n");
+            Console.WriteLine("Entrez vos réponses sous la forme: MOT DIRECTION COLONNE LIGNE\n");
 
             string s1 = "";
             foreach (string s in motsATrouver)

@@ -110,7 +110,7 @@ namespace S3_Projet
                 {
                     if (currentPlateau.MotsATrouver.Contains(args[0]))
                     {
-                        if (currentPlateau.Test_Plateau(args[0], Int32.Parse(args[2]) - 1, Int32.Parse(args[3]) - 1, args[1]))
+                        if (currentPlateau.Test_Plateau(args[0], Int32.Parse(args[3]) - 1,Int32.Parse(args[2]) - 1, args[1]))
                         {
                             if (t.Time <= maxTime)
                             {
